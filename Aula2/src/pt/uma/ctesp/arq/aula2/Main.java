@@ -24,7 +24,16 @@ public class Main {
         //System.out.println(ArrayUtilities.toString(valores));
         //System.out.println(ArrayUtilities.maximumOf(valores));
         //System.out.println(ArrayUtilities.minimumOf(valores));
-        System.out.println(ArrayUtilities.toString(ArrayUtilities.CopyOf(valores)));
+        //System.out.println(ArrayUtilities.toString(ArrayUtilities.CopyOf(valores)));
+        //System.out.println(ArrayUtilities.contains(valores, 2));
+        //System.out.println(ArrayUtilities.containsDuplicates(valores));
+        //System.out.println(ArrayUtilities.indexOf(valores, 1));
+        //System.out.println(ArrayUtilities.toString(ArrayUtilities.add(valores, 10)));
+        if(ArrayUtilities.contains(valores, 55)){
+            System.out.println(ArrayUtilities.toString(ArrayUtilities.remove(valores, 55)));
+        }else{
+            System.out.println("O valor não existe no array!!");
+        }
     }
 
 }
