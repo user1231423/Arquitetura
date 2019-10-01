@@ -58,7 +58,6 @@ public class NumericalUtilities {
     }
 
     public static boolean isPrime(int numero) {
-       
         int divisores = 0;
         if (numero < 0) {
             System.out.println("Numero inválido dado!");

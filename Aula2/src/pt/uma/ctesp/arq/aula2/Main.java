@@ -19,7 +19,7 @@ public class Main {
         //System.out.println(NumericalUtilities.sumOfNaturalNumbersUpTo(100));
         //System.out.println(NumericalUtilities.sumOfNaturalnumbersBetween(0, 5));
         //System.out.println(NumericalUtilities.sumOfEvenNumbersBetween(1, 10));
-        //System.out.println(NumericalUtilities.isPrime(3));
+        //System.out.println(NumericalUtilities.isPrime(2));
         int[] valores = {50, 30, 0, 1, 2, 55};
         //System.out.println(ArrayUtilities.toString(valores));
         //System.out.println(ArrayUtilities.maximumOf(valores));
@@ -29,8 +29,8 @@ public class Main {
         //System.out.println(ArrayUtilities.containsDuplicates(valores));
         //System.out.println(ArrayUtilities.indexOf(valores, 1));
         //System.out.println(ArrayUtilities.toString(ArrayUtilities.add(valores, 10)));
-        if(ArrayUtilities.contains(valores, 55)){
-            System.out.println(ArrayUtilities.toString(ArrayUtilities.remove(valores, 55)));
+        if(ArrayUtilities.contains(valores, 30)){
+            System.out.println(ArrayUtilities.toString(ArrayUtilities.remove(valores, 2)));
         }else{
             System.out.println("O valor não existe no array!!");
         }
