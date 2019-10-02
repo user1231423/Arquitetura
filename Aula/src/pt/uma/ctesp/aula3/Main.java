@@ -19,20 +19,25 @@ public class Main {
         incrementFirstof(numbers);
         System.out.println(numbers[0]);*/
         //////////////////////////////////////////
-        char carater = 'y';
+        char carater = 'a';
         /*if (validChar(carater)) {
             System.out.println(CharacterUtilities.lowerLetterSuccessorOf(carater));
         }*/
         /*if(validChar(carater)){
             System.out.println(CharacterUtilities.lowerLetterPredecessorOf(carater));
         }*/
-        if(validChar(carater)){
-            System.out.println(CharacterUtilities.lowerLetterSuccessorStepsOf(carater, 2));
-        }
         /*if(validChar(carater)){
-            System.out.println(CharacterUtilities.lowerLetterpredecessorStepsOf(carater, 2));
+            System.out.println(CharacterUtilities.lowerLetterSuccessorStepsOf(carater, 2));
         }*/
-        
+        /*if(validChar(carater)){
+            System.out.println(CharacterUtilities.lowerLetterPredecessorStepsOf(carater, 2));
+        }*/
+        char[] carateres = {'a', 'b', 'c', 'e'};
+        char[] array2 = {'h','j','k'};
+        //System.out.println(CharacterUtilities.ocorrencesOfCharacterIn(carateres, 'a'));
+        //System.out.println(CharacterUtilities.replaceCharacterIn(carateres, 'a', 'h'));
+        //System.out.println(CharacterUtilities.concatenationOf(carateres, array2));
+        System.out.println(CharacterUtilities.copyOfPartOf(carateres, 1, 3));
     }
     
     public static boolean validChar(char letter){
