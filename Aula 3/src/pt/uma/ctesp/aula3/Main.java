@@ -37,11 +37,11 @@ public class Main {
         //System.out.println(CharacterUtilities.ocorrencesOfCharacterIn(carateres, 'a'));
         //System.out.println(CharacterUtilities.replaceCharacterIn(carateres, 'a', 'h'));
         //System.out.println(CharacterUtilities.concatenationOf(carateres, array2));
-        System.out.println(CharacterUtilities.copyOfPartOf(carateres, 1, 3));
+        //System.out.println(CharacterUtilities.copyOfPartOf(carateres, 1, 3));
         
-        String palavra = "ola";
-        //System.out.println(CeaserCipherDecipher.cypher(palavra, 2));
-        //System.out.println(CeaserCipherDecipher.decipher(CeaserCipherDecipher.cypher(palavra, 2), 2));        
+        String palavra = "aaa";
+        System.out.println(CeaserCipherDecipher.cypher(palavra, 1));
+        System.out.println(CeaserCipherDecipher.decipher(CeaserCipherDecipher.cypher(palavra, 1), 1));        
     }
     
     public static boolean validChar(char letter){

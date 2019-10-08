@@ -21,7 +21,7 @@ public class CeaserCipherDecipher {
     public static String decipher(String desencriptar, int shift){
         char [] retornar = desencriptar.toCharArray();
         for(int i = 0; i < retornar.length; i++){
-            retornar[i] = CharacterUtilities.lowerLetterPredecessorStepsOf(retornar[i], 2);
+            retornar[i] = CharacterUtilities.lowerLetterPredecessorStepsOf(retornar[i], shift);
         }
         return String.valueOf(retornar);
     }
