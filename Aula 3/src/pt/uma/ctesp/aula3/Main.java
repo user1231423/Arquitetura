@@ -32,15 +32,15 @@ public class Main {
         /*if(validChar(carater)){
             System.out.println(CharacterUtilities.lowerLetterPredecessorStepsOf(carater, 2));
         }*/
-        //char[] carateres = {'a', 'b', 'c', 'e'};
-        //char[] array2 = {'h','j','k'};
+        char[] carateres = {'a', 'b', 'c', 'e'};
+        char[] array2 = {'h','j','k'};
         //System.out.println(CharacterUtilities.ocorrencesOfCharacterIn(carateres, 'a'));
         //System.out.println(CharacterUtilities.replaceCharacterIn(carateres, 'a', 'h'));
         //System.out.println(CharacterUtilities.concatenationOf(carateres, array2));
-        //System.out.println(CharacterUtilities.copyOfPartOf(carateres, 1, 3));
+        System.out.println(CharacterUtilities.copyOfPartOf(carateres, 1, 3));
         
         String palavra = "ola";
-        //System.out.println(CeaserCipherDecipher.cypher("ola", 2));
+        //System.out.println(CeaserCipherDecipher.cypher(palavra, 2));
         //System.out.println(CeaserCipherDecipher.decipher(CeaserCipherDecipher.cypher(palavra, 2), 2));        
     }
     

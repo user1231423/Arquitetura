@@ -22,11 +22,11 @@ public class CharacterUtilities {
         char retornar = ' ';
         if (number > 122) {
             int difference = number - 122;
-            int returnNumber = 96 + difference;
+            int returnNumber = 97 + difference;
             retornar = (char) returnNumber;
         } else if (number < 97) {
             int difference = 97 - number;
-            int returnNumber = 123 - difference;
+            int returnNumber = 122 - difference;
             retornar = (char) returnNumber;
         } else {
             retornar = (char) number;
@@ -121,12 +121,8 @@ public class CharacterUtilities {
         if ((inicio >= fim) || (fim > letras.length) ) {
             System.out.println("Operação inválida!");
         } else {
-            for (int i = 0; i < retornar.length; i++) {
-                if ((i >= inicio) || (i < fim)) {
-                    retornar[i] = letras[i];
-                } else {
-                    continue;
-                }
+            for (int i = inicio; i <= fim; i++) {
+                retornar[i - inicio] = letras[i];
             }
         }
         return retornar;
