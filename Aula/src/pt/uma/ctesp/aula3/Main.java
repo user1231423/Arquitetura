@@ -37,7 +37,13 @@ public class Main {
         //System.out.println(CharacterUtilities.ocorrencesOfCharacterIn(carateres, 'a'));
         //System.out.println(CharacterUtilities.replaceCharacterIn(carateres, 'a', 'h'));
         //System.out.println(CharacterUtilities.concatenationOf(carateres, array2));
-        System.out.println(CharacterUtilities.copyOfPartOf(carateres, 1, 3));
+        //System.out.println(CharacterUtilities.copyOfPartOf(carateres, 1, 3));
+        
+        char[] palavra = {'o','l','a'};
+        //System.out.println(CeaserCipherDecipher.cypher(palavra, 2));
+        //System.out.println(CeaserCipherDecipher.decipher(CeaserCipherDecipher.cypher(palavra, 2), 2));
+        System.out.println(EncDec.encrypt("Texto a dar decript", 2));
+        
     }
     
     public static boolean validChar(char letter){
