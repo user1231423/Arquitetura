@@ -9,6 +9,8 @@ package pt.uma.ctesp.aula3;
  *
  * @author JEVG
  */
+
+/*
 public class EncDec {
 
         public static char successorSteps(char letter, int steps) {
@@ -31,3 +33,4 @@ public class EncDec {
     }
     
 }
+*/
