@@ -13,9 +13,9 @@ public class Exercises {
     public static void printGrades(int[] numbers, String [] acronyms, int[][] grades){
         for(int i = 0; i < numbers.length; i++){
             System.out.println("As notas do aluno-> " + numbers[i] +  " sao:");
-            for(int x = 0; x < acronyms.length; x ++){
+            for(int x = 0; x < grades[x].length; x++){
                 System.out.println(acronyms[x] + "-> " + grades[i][x]);
-            }   
+            }
         }
     }
 }
