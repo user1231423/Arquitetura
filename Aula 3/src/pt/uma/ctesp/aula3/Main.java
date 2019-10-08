@@ -19,7 +19,7 @@ public class Main {
         incrementFirstof(numbers);
         System.out.println(numbers[0]);*/
         //////////////////////////////////////////
-        char carater = 'a';
+        char carater = 'z';
         /*if (validChar(carater)) {
             System.out.println(CharacterUtilities.lowerLetterSuccessorOf(carater));
         }*/
@@ -41,7 +41,7 @@ public class Main {
         
         String palavra = "ola";
         //System.out.println(CeaserCipherDecipher.cypher("ola", 2));
-        System.out.println(CeaserCipherDecipher.decipher(CeaserCipherDecipher.cypher(palavra, 2), 2));        
+        //System.out.println(CeaserCipherDecipher.decipher(CeaserCipherDecipher.cypher(palavra, 2), 2));        
     }
     
     public static boolean validChar(char letter){

@@ -22,11 +22,11 @@ public class CharacterUtilities {
         char retornar = ' ';
         if (number > 122) {
             int difference = number - 122;
-            int returnNumber = 97 + difference;
+            int returnNumber = 96 + difference;
             retornar = (char) returnNumber;
         } else if (number < 97) {
             int difference = 97 - number;
-            int returnNumber = 122 - difference;
+            int returnNumber = 123 - difference;
             retornar = (char) returnNumber;
         } else {
             retornar = (char) number;
