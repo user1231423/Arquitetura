@@ -22,7 +22,7 @@ public class CeaserCipherDecipher {
         char [] retornar = desencriptar.toCharArray();
         for(int i = 0; i < retornar.length; i++){
             retornar[i] = CharacterUtilities.lowerLetterPredecessorStepsOf(retornar[i], shift);
-        }
+        } 
         return String.valueOf(retornar);
     }
 }
