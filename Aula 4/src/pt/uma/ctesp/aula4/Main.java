@@ -16,6 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        /*
         final int [] studentNumbers = {20032,30312,25342,31432};
         final String[] courseAcronyms = {"Ad", "Web-FE", "WEB-Be", "HC"};
         final int [][] studentGrades = {
@@ -32,6 +33,27 @@ public class Main {
         };
         
         Exercises.printGrades(studentNumbers, courseAcronyms, studentGrades);
+         */
+        int[][] matriz1 = {
+            {1,0,0},
+            {0,1,0},
+            {0,0,1}
+        };
+        int[][] matriz2 = {
+            {1,1,2},
+            {5,1,3},
+            {1,3,3,5}
+        };
+        //MatrixUtilities.show(matriz);
+        //System.out.println(MatrixUtilities.isMatrix(matriz2));
+        System.out.println(MatrixUtilities.isIdentity(matriz1));
+        //MatrixUtilities.multiplyBy(matriz, 2);
+        //System.out.println(MatrixUtilities.areCompatibleForSum(matriz1, matriz2));
+        //CharacterDrawingUtilities.drawElement('+');
+        //CharacterDrawingUtilities.drawNewLine();
+        //CharacterDrawingUtilities.drawHorizontalSegmentWith('a');
+        //CharacterDrawingUtilities.drawFilledRectangelWith(10,10,'+');
+        //CharacterDrawingUtilities.drawEmptyRectangleWith(10, 10, '+');
     }
-    
+
 }
