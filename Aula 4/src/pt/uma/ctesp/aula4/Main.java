@@ -42,13 +42,14 @@ public class Main {
         int[][] matriz2 = {
             {1,1,2},
             {5,1,3},
-            {1,3,3,5}
+            {1,3,3}
         };
         //MatrixUtilities.show(matriz);
         //System.out.println(MatrixUtilities.isMatrix(matriz2));
-        System.out.println(MatrixUtilities.isIdentity(matriz1));
+        //System.out.println(MatrixUtilities.isIdentity(matriz1));
         //MatrixUtilities.multiplyBy(matriz, 2);
         //System.out.println(MatrixUtilities.areCompatibleForSum(matriz1, matriz2));
+        //System.out.println(MatrixUtilities.sumOf(matriz1, matriz2));
         //CharacterDrawingUtilities.drawElement('+');
         //CharacterDrawingUtilities.drawNewLine();
         //CharacterDrawingUtilities.drawHorizontalSegmentWith('a');

@@ -65,15 +65,14 @@ public class MatrixUtilities {
         }
     }
 
-    public static void multiplyBy(int[][] valores, int mult) {
+    public static int[][] multiplyBy(int[][] valores, int mult) {
+        int[][] retornar = new int[valores.length][valores[0].length];
         for (int i = 0; i < valores.length; i++) {
-            System.out.print("[");
             for (int x = 0; x < valores[i].length; x++) {
-                System.out.print(valores[i][x] * mult + " ");
+                retornar[i][x] = valores[i][x] * mult;
             }
-            System.out.print("]");
-            System.out.println("");
         }
+        return retornar;
     }
 
     public static int getLineLength(int[][] verificar) {
@@ -105,4 +104,15 @@ public class MatrixUtilities {
         return retornar;
     }
 
+    public static int [][] sumOf(int[][] valores1, int[][] valores2){
+        int [][] retornar = new int [valores1.length][valores1[0].length];
+        if(areCompatibleForSum(valores1,valores2)){
+            for(int i = 0; i < valores1.length; i++){
+                for(int x = 0; x < valores1.length; x++){
+                    retornar[i][x] = valores1[i][x] + valores2[i][x];
+                }
+            }
+        }
+        return retornar;
+    }
 }
