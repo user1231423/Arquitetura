@@ -67,5 +67,15 @@ public class Rectangle {
             return true;   
         }
     }
-    
+    /*
+    public boolean contains(Point check){
+        boolean retornar = false;
+        Point topRight = new Point(this.topLeftPoint.getX() + width, this.topLeftPoint.getY());
+        Point botRight = new Point(this.topLeftPoint.getX() + width, this.topLeftPoint.getY() - height);
+        Point botLeft = new Point(this.topLeftPoint.getX(), this.topLeftPoint.getY() - height);
+        if(check.getX() > this.topLeftPoint.getX() && check.getX() < topRight.getX() && check.getY() > botRight.getY() && check.getY() < topRight.getY()){
+            retornar = true;
+        }
+        return retornar;
+    }*/
 }

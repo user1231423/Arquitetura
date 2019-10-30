@@ -18,7 +18,7 @@ public class Main {
        //System.out.println(p1.distanceTo(p2));
        Triangle t1 = new Triangle(p1,p2,p3);
        //System.out.println(t1.calculateArea());
-       Point topLeft = new Point(0,10);
+       Point topLeft = new Point(0,10); 
        Rectangle r1 = new Rectangle(topLeft,10,20);
        System.out.println(r1.contains(p1));
     }  
