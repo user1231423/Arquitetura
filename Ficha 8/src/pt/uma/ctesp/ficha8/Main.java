@@ -5,7 +5,6 @@
  */
 package pt.uma.ctesp.ficha8;
 
-
 import java.awt.Color;
 import java.util.Date;
 import java.util.Timer;
@@ -16,12 +15,14 @@ import java.util.TimerTask;
  * @author joaogouveia
  */
 public class Main extends javax.swing.JFrame {
+
     private double currentTempC = Math.random() * 31 + 12;
     private double currentTempF = currentTempC * 1.8 + 32;
     private double desiredTemp = currentTempC;
     private double currentHum = (int) (Math.random() * 100 + 5);
     private double desiredHum = currentHum;
     private boolean on = false;
+
     /**
      * Creates new form Main
      */
@@ -30,13 +31,13 @@ public class Main extends javax.swing.JFrame {
         this.jLabelDate.setText(new Date() + "");
         this.jTextAreaLog.setEditable(false);
         this.jTextAreaLog.setForeground(Color.red);
-        jLabelCurrentTemp.setText(String.format("%.2f", currentTempC ) + " ºC");
-        jLabelDesiredTemp.setText(String.format("%.2f", desiredTemp ) + " ºC");
+        jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + " ºC");
+        jLabelDesiredTemp.setText(String.format("%.2f", desiredTemp) + " ºC");
         this.jLabelCurrentHum.setText(currentHum + " %");
         this.jLabelDesiredHum.setText(desiredHum + " %");
         simulateTemperature();
     }
-     
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -72,6 +73,7 @@ public class Main extends javax.swing.JFrame {
         jTextAreaLog = new javax.swing.JTextArea();
         jButtonON = new javax.swing.JButton();
         jButtonOFF = new javax.swing.JButton();
+        jLabelStatus = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -118,7 +120,6 @@ public class Main extends javax.swing.JFrame {
 
         jButtonConvertToC.setText("C");
         jButtonConvertToC.setPreferredSize(new java.awt.Dimension(40, 37));
-        jButtonConvertToC.setSize(new java.awt.Dimension(40, 37));
         jButtonConvertToC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonConvertToCActionPerformed(evt);
@@ -140,7 +141,7 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jButtonConvertToF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonConvertToC, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12))
+                        .addGap(8, 8, 8))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -234,7 +235,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jLabelDate.setText("Quinta-feira, 28/11/2019, 15:49");
+        jLabelDate.setText("jLabelDate");
 
         jTextAreaLog.setColumns(20);
         jTextAreaLog.setRows(5);
@@ -248,6 +249,13 @@ public class Main extends javax.swing.JFrame {
         });
 
         jButtonOFF.setText("OFF");
+        jButtonOFF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOFFActionPerformed(evt);
+            }
+        });
+
+        jLabelStatus.setText("jLabelStatus");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -261,20 +269,23 @@ public class Main extends javax.swing.JFrame {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSeparator1))
+                    .addComponent(jSeparator1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonOFF, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonON, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jLabelStatus)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(196, 196, 196)
                 .addComponent(jLabelDate)
-                .addGap(169, 169, 169))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonON, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButtonOFF, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,14 +298,17 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(47, 47, 47)
+                .addGap(11, 11, 11)
+                .addComponent(jLabelStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
                         .addComponent(jButtonON)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonOFF)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -305,14 +319,14 @@ public class Main extends javax.swing.JFrame {
 
     private void jButtonTempDecreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTempDecreaseActionPerformed
         this.desiredTemp -= 0.5;
-        jLabelDesiredTemp.setText(String.format("%.2f", desiredTemp ) + " ºC");
+        jLabelDesiredTemp.setText(String.format("%.2f", desiredTemp) + " ºC");
         this.jTextAreaLog.append("Desired temperature decreased " + 0.5 + "\n");
 
     }//GEN-LAST:event_jButtonTempDecreaseActionPerformed
 
     private void jButtonTempIncreaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTempIncreaseActionPerformed
         this.desiredTemp += 0.5;
-        jLabelDesiredTemp.setText(String.format("%.2f", desiredTemp ) + " ºC");
+        jLabelDesiredTemp.setText(String.format("%.2f", desiredTemp) + " ºC");
         this.jTextAreaLog.append("Desired temperature increased " + 0.5 + "\n");
     }//GEN-LAST:event_jButtonTempIncreaseActionPerformed
 
@@ -329,28 +343,23 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonHumIncreaseActionPerformed
 
     private void jButtonConvertToFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConvertToFActionPerformed
-        jLabelCurrentTemp.setText(String.format("%.2f", currentTempF ) + " ºF");
+        jLabelCurrentTemp.setText(String.format("%.2f", currentTempF) + " ºF");
     }//GEN-LAST:event_jButtonConvertToFActionPerformed
 
     private void jButtonConvertToCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConvertToCActionPerformed
-        jLabelCurrentTemp.setText(String.format("%.2f", currentTempC ) + " ºC");
+        jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + " ºC");
     }//GEN-LAST:event_jButtonConvertToCActionPerformed
 
     private void jButtonONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonONActionPerformed
         this.on = true;
-        Timer t = new Timer();
-        TimerTask tt = new TimerTask() {
-            @Override
-            public void run() {
-                if(currentTempC == desiredTemp){
-                    t.cancel();
-                }
-                currentTempC += 0.5;
-                jLabelCurrentTemp.setText(String.format("%.2f", currentTempC ) + " ºC");
-            }
-        };
-        t.scheduleAtFixedRate(tt, 0, 3000);
+        jLabelStatus.setText("Heating ON!");
+        controlTemperature();
     }//GEN-LAST:event_jButtonONActionPerformed
+
+    private void jButtonOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOFFActionPerformed
+        this.on = false;
+        jLabelStatus.setText("Heating OFF!");
+    }//GEN-LAST:event_jButtonOFFActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,6 +415,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelDesiredHumLabel;
     private javax.swing.JLabel jLabelDesiredTemp;
     private javax.swing.JLabel jLabelDesiredTempLabel;
+    private javax.swing.JLabel jLabelStatus;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
@@ -416,16 +426,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaLog;
     // End of variables declaration//GEN-END:variables
 
-   public javax.swing.JLabel getjLabelDate(){
-       return this.jLabelDate;
-   }
-
     private void simulateTemperature() {
         Timer t = new Timer();
         TimerTask tt = new TimerTask() {
             @Override
             public void run() {
-                if(Math.round(Math.random() * ( 100 - 0 ) ) <= 30){
+                if (Math.round(Math.random() * (100 - 0)) <= 30) {
                     currentTempC -= 0.5;
                     currentTempF = currentTempC * 1.8 + 32;
                     jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + "ºC");
@@ -433,5 +439,27 @@ public class Main extends javax.swing.JFrame {
             }
         };
         t.scheduleAtFixedRate(tt, 0, 5000);
+    }
+
+    private void controlTemperature() {
+        Timer t = new Timer();
+        TimerTask tt = new TimerTask() {
+            @Override
+            public void run() {
+                if ( (currentTempC == desiredTemp) && (currentHum == desiredHum) || (on == false)) {
+                    on = false;
+                    jLabelStatus.setText("Heating OFF!");
+                    t.cancel();
+                } else if ( (currentTempC < desiredTemp) || (currentHum < desiredHum)) {
+                    currentTempC += 0.5;
+                    jTextAreaLog.append("Temperature increased " + 5 + "\n");
+                    jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + " ºC");
+                } else {
+                    currentTempC -= 0.5;
+                    jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + " ºC");
+                }
+            }
+        };
+        t.scheduleAtFixedRate(tt, 0, 3000);
     }
 }
