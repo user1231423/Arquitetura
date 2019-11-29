@@ -17,10 +17,10 @@ import java.util.TimerTask;
 public class Main extends javax.swing.JFrame {
 
     private double currentTempC = Math.random() * 31 + 12;
-    private double currentTempF = currentTempC * 1.8 + 32;
+    private boolean TempF = false;
     private double desiredTemp = currentTempC;
-    private double currentHum = (int) (Math.random() * 100 + 5);
-    private double desiredHum = currentHum;
+    private int currentHum = (int) (Math.random() * 100 + 5);
+    private int desiredHum = currentHum;
     private boolean on = false;
 
     /**
@@ -35,6 +35,7 @@ public class Main extends javax.swing.JFrame {
         jLabelDesiredTemp.setText(String.format("%.2f", desiredTemp) + " ºC");
         this.jLabelCurrentHum.setText(currentHum + " %");
         this.jLabelDesiredHum.setText(desiredHum + " %");
+        this.jLabelStatus.setText("Heating OFF!");
         simulateTemperature();
     }
 
@@ -343,17 +344,44 @@ public class Main extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonHumIncreaseActionPerformed
 
     private void jButtonConvertToFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConvertToFActionPerformed
-        jLabelCurrentTemp.setText(String.format("%.2f", currentTempF) + " ºF");
+        this.TempF = true;
+        setTemp();
     }//GEN-LAST:event_jButtonConvertToFActionPerformed
 
     private void jButtonConvertToCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConvertToCActionPerformed
-        jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + " ºC");
+        this.TempF = false;
+        setTemp();
     }//GEN-LAST:event_jButtonConvertToCActionPerformed
 
     private void jButtonONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonONActionPerformed
         this.on = true;
         jLabelStatus.setText("Heating ON!");
-        controlTemperature();
+        if ((currentHum == desiredHum) && (currentTempC == desiredTemp)) {
+            this.on = false;
+            jLabelStatus.setText("Heating OFF nothing to change!");
+        } else {
+            Timer t = new Timer();
+            TimerTask tt = new TimerTask() {
+                @Override
+                public void run() {
+                    if ((currentHum == desiredHum) && (currentTempC == desiredTemp)) {
+                        on = false;
+                        t.cancel();
+                        jLabelStatus.setText("Heating OFF!");
+                    } else {
+                        if ((currentHum != desiredHum) && (currentTempC != desiredTemp)) {
+                            controlHumidity();
+                            controlTemperature();
+                        } else if ((currentTempC != desiredTemp) && (currentHum == desiredHum)) {
+                            controlTemperature();
+                        } else if ((currentHum != desiredHum) && (currentTempC == desiredTemp)) {
+                            controlHumidity();
+                        }
+                    }
+                }
+            };
+            t.scheduleAtFixedRate(tt, 0, 2000);
+        }
     }//GEN-LAST:event_jButtonONActionPerformed
 
     private void jButtonOFFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOFFActionPerformed
@@ -426,40 +454,75 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaLog;
     // End of variables declaration//GEN-END:variables
 
+    private void setTemp() {
+        if (this.TempF) {
+            jLabelCurrentTemp.setText(String.format("%.2f", (currentTempC * 1.8) + 32) + " ºF");
+        } else {
+            jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + " ºC");
+        }
+    }
+
     private void simulateTemperature() {
         Timer t = new Timer();
         TimerTask tt = new TimerTask() {
             @Override
             public void run() {
-                if (Math.round(Math.random() * (100 - 0)) <= 30) {
-                    currentTempC -= 0.5;
-                    currentTempF = currentTempC * 1.8 + 32;
-                    jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + "ºC");
+                if(currentTempC >= 18){
+                    if (Math.round(Math.random() * (100 - 0)) <= 30) {
+                        currentTempC -= 0.5;
+                        setTemp();
+                    }
                 }
             }
         };
         t.scheduleAtFixedRate(tt, 0, 5000);
     }
 
-    private void controlTemperature() {
-        Timer t = new Timer();
-        TimerTask tt = new TimerTask() {
-            @Override
-            public void run() {
-                if ( (currentTempC == desiredTemp) && (currentHum == desiredHum) || (on == false)) {
-                    on = false;
-                    jLabelStatus.setText("Heating OFF!");
-                    t.cancel();
-                } else if ( (currentTempC < desiredTemp) || (currentHum < desiredHum)) {
-                    currentTempC += 0.5;
-                    jTextAreaLog.append("Temperature increased " + 5 + "\n");
-                    jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + " ºC");
-                } else {
-                    currentTempC -= 0.5;
-                    jLabelCurrentTemp.setText(String.format("%.2f", currentTempC) + " ºC");
-                }
+    private void increaseHumidity() {
+        currentHum += 5;
+        jTextAreaLog.append("Humidity increased " + 5 + "\n");
+        jLabelCurrentHum.setText(currentHum + "%");
+    }
+
+    private void decreaseHumidity() {
+        currentHum -= 5;
+        jTextAreaLog.append("Humidity Decreased " + 5 + "\n");
+        jLabelCurrentHum.setText(currentHum + "%");
+    }
+
+    private void controlHumidity() {
+        if (currentHum < desiredHum) {
+            if (Math.round(Math.random() * (100 - 0)) <= 80) {
+                increaseHumidity();
             }
-        };
-        t.scheduleAtFixedRate(tt, 0, 3000);
+        } else {
+            if (Math.round(Math.random() * (100 - 0)) <= 80) {
+                decreaseHumidity();
+            }
+        }
+    }
+
+    private void increaseTemperature() {
+        currentTempC += 0.5;
+        jTextAreaLog.append("Temperature increased " + 0.5 + "\n");
+        setTemp();
+    }
+
+    private void decreaseTemperature() {
+        currentTempC -= 0.5;
+        jTextAreaLog.append("Temperature decreased " + 0.5 + "\n");
+        setTemp();
+    }
+
+    private void controlTemperature() {
+        if (currentTempC < desiredTemp) {
+            if (Math.round(Math.random() * (100 - 0)) <= 80) {
+                increaseTemperature();
+            }
+        } else {
+            if (Math.round(Math.random() * (100 - 0)) <= 80) {
+                decreaseTemperature();
+            }
+        }
     }
 }
