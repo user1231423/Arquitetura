@@ -39,7 +39,9 @@ public class Freq {
                 i += 1;
             } else {
                 ammount = count(word, word.charAt(i));
-                finalWord.append(ammount);
+                if(ammount != 1){
+                    finalWord.append(ammount);
+                }
                 finalWord.append(word.charAt(i));
             }
         }
