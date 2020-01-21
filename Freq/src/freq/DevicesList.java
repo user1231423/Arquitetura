@@ -20,29 +20,17 @@ public class DevicesList {
     }
     
     public void addDevice(MobileDevice device){
-        System.out.println(device.toString());
         this.devices.add(device);
     }
     
-    public ArrayList<MobileDevice> getDevices(){
-        return this.devices;
-    }
-    
-    public String orderByCpuPower(){
-        Collections.sort(this.devices, new CpuCoreCompare());
+    public void getDevices(){
         for(MobileDevice device: this.devices){
             System.out.println(device.toString());
-        };
-        
-        return "";
-    }
-
-    @Override
-    public String toString() {
-        for(MobileDevice device: this.devices){
-            device.toString();
-        };
-        return "";
+        }
     }
     
+    public void orderByCpuPower(){
+        Collections.sort(devices, new CpuCoreCompare());
+    }
+
 }

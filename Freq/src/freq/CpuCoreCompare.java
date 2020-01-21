@@ -15,10 +15,7 @@ public class CpuCoreCompare implements Comparator<MobileDevice>{
 
     @Override
     public int compare(MobileDevice device1, MobileDevice device2) {
-        double device1CpuPower = device1.getCPU().getCores();
-        double device2CpuPower = device2.getCPU().getCores();
-        
-        return device1CpuPower < device2CpuPower ? 1: device1CpuPower == device2CpuPower ? 0: -1;
+        return device1.getCPU().getCores() < device2.getCPU().getCores() ? 1: device1.getCPU().getCores() == device2.getCPU().getCores() ? 0: -1;
     }
     
 }

@@ -11,6 +11,22 @@ package freq;
  */
 public class Freq {
 
+    private static String countAndPrint(String word) {
+        StringBuilder finalWord = new StringBuilder(0);
+        int ammount = 0;
+        for (int i = 0; i < word.length(); i++) {
+            if (Character.isDigit(word.charAt(i)) && !Character.isDigit(word.charAt(i + 1))) {
+                int a = Integer.parseInt(String.valueOf(word.charAt(i)));
+                for (int x = 1; x < a; x++) {
+                    finalWord.append(word.charAt(i + 1));
+                }
+            } else {
+                finalWord.append(word.charAt(i));
+            }
+        }
+        return finalWord.toString();
+    }
+
     public static boolean belongsTo(String word, char c) {
         boolean retornar = false;
         for (int i = 0; i < word.length(); i++) {
@@ -39,7 +55,7 @@ public class Freq {
                 i += 1;
             } else {
                 ammount = count(word, word.charAt(i));
-                if(ammount != 1){
+                if (ammount != 1) {
                     finalWord.append(ammount);
                 }
                 finalWord.append(word.charAt(i));
@@ -64,11 +80,13 @@ public class Freq {
 
         Tablet tablet = new Tablet(true, "Xiaomi", "A3", 2019, 123, cpu2);
         list.addDevice(tablet);
-        System.out.println(list.toString());
-        System.out.println(list.orderByCpuPower());
+
+        list.orderByCpuPower();
+        list.getDevices();
 
         String ff = countInWord("TTTASSPPRRRR");
         System.out.println(ff);
+        String fff = countAndPrint("3TA2S2P4R");
+        System.out.println(fff);
     }
-
 }
